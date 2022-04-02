@@ -1,0 +1,17 @@
+header {
+    min-height: 15vh;
+    /* margin: 20px 50px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    /* min-height: 15vh; */
+    /* margin: 20px 50px; */
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 20px; */
+}
