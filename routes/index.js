@@ -3,7 +3,7 @@ const router = express.Router();
 const homeController = require("../controllers/homepage");
 const authenticationController = require("../controllers/authentication");
 
-router.get('/', homeController.getHomePage);
+router.get('/homepage', homeController.getHomePage);
 router.get('/signin', authenticationController.getSignInPage);
 router.get('/user', homeController.getUser);
 router.get('/attendance', homeController.getAttendance);
