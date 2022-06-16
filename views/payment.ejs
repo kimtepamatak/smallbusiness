@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="/Assets/Icons/fontawesome-free-5.15.1-web/css/all.css">
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -166,6 +168,64 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
                     <h4>Payment</h4>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Add User
+                    </button>
+                    <!-- Modal -->
+                    <!-- <div class="modal fade" id="createPaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                     </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/payment" method="post" class="form form-vertical needs-validation" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group has-validation">
+                                                        <label for="Staff">Staff</label>
+                                                        <input id="inputStaff" type="text" class="form-control" placeholder="Staff" required>
+                                                        <input id="inputStaffId" type="text" class="d-none form-control" placeholder="Staff" name="staffId">
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                        <div class="dropdown">
+                                                            <ul id="listSelectStaffs" class="dropdown-menu">
+                                                                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group has-validation">
+                                                        <label for="Payment-Amount">Payment-Amount</label>
+                                                        <input type="number" class="form-control" placeholder="Payment-Amount" name="paymentamount" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-end mt-3">
+                                                    <button type="reset" data-bs-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Topbar Search -->
                     <form style="width: 400px;">
                         <div class="input-group">
@@ -183,13 +243,13 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">ID-Payment</th>
                                 <th scope="col">ID-Staff</th>
                                 <th scope="col">Date-Payment</th>
                                 <th scope="col">Payment-Amount</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="paymentTable"></tbody>
+                        <!-- <tbody>
                             <tr>
                                 <th scope="row">NO.00001</th>
                                 <td>A-001</td>
@@ -208,7 +268,7 @@
                                 <td>10/03/2022</td>
                                 <td>300$</td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
             </div>
@@ -220,6 +280,30 @@
     <section class="footer">
         <div class="credit"> created by <span> Kim Tepamatak </span> | all rights reserved </div>
     </section>
+    <!-- for connect with backend -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/backend/payment.js"></script>
+
+    <script>
+        // Disable form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 </body>
 
 </html>

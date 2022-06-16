@@ -165,6 +165,67 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
                     <h4>Daily Income</h4>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAttendanceModal">
+                        Add Product
+                    </button>
+                    <div class="modal fade" id="createAttendanceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/attendance" method="post" class="form form-vertical needs-validation" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group has-validation">
+                                                        <label for="Staff">Staff</label>
+                                                        <input id="inputStaff" type="text" class="form-control" placeholder="Staff" required>
+                                                        <input id="inputStaffId" type="text" class="d-none form-control" placeholder="Staff" name="staffId">
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                        <div class="dropdown">
+                                                            <ul id="listSelectStaffs" class="dropdown-menu">
+                                                                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Date-Income">Date-Income</label>
+                                                        <input type="String" class="form-control" placeholder="Date-Income" name="dateincome" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Number-Sold">Number-Sold</label>
+                                                        <input type="number" class="form-control" placeholder="Number-Sold" name="numbersold" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Bonus">Bonus</label>
+                                                        <input type="number" class="form-control" placeholder="Bonus" name="bonus" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-end mt-3">
+                                                    <button type="reset" data-bs-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Topbar Search -->
                     <form style="width: 400px;">
                         <div class="input-group">
@@ -210,7 +271,6 @@
                                 <td>10</td>
                                 <td>-$</td>
                                 <td>300</td>
-
                             </tr>
                             <tr>
                                 <td>ID-DailyIncome-0003</td>
@@ -220,7 +280,6 @@
                                 <td>7</td>
                                 <td>-$</td>
                                 <td>300</td>
-
                             </tr>
                         </tbody>
                     </table>

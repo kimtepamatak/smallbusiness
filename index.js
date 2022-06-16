@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const fileUpload = require("express-fileupload");
 const path = require('path');
-const port = 5000;
+const port = 3000;
 
 const app = express();
 const routes = require("./routes/index.js");

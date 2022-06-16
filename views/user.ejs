@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="/Assets/Icons/fontawesome-free-5.15.1-web/css/all.css">
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
@@ -83,7 +84,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -99,7 +100,6 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings:</h6>
-                        <a class="collapse-item" href="buttons.html">Create-User</a>
                         <a class="collapse-item" href="cards.html">Edit-User</a>
                         <a class="collapse-item" href="cards.html">Delete</a>
                     </div>
@@ -167,6 +167,97 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
                     <h4>User Information</h4>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Add User
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                     </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/user" method="post" class="form form-vertical needs-validation" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group has-validation">
+                                                        <label for="Username">Username</label>
+                                                        <input type="text" class="form-control" placeholder="Username" name="username" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Fullname">Fullname</label>
+                                                        <input type="text" class="form-control" placeholder="Fullname" name="fullname" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Password">Password</label>
+                                                        <input type="password" minlength="8" class="form-control" placeholder="Password" name="password" required>
+                                                        <div class="invalid-feedback">Please fill out this field with 8 digits up</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Telephone">Telephone</label>
+                                                        <input type="text" class="form-control" placeholder="Telephone" name="telephone" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Email">Email</label>
+                                                        <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                                        <div class="invalid-feedback">Please fill out this field correctly with your email</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Address">Address</label>
+                                                        <input type="text" class="form-control" placeholder="Address" name="address" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Type">Type</label>
+                                                        <select class="form-select form-control" name="type" required>
+                                                             <option value="Normal">Normal</option>
+                                                            <option value="Admin">Admin</option>
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Status">Status</label>
+                                                        <select class="form-select form-control" name="status" required>
+                                                  <option value="Enable" selected>Enable</option>
+                                                  <option value="Disable">Disable</option>
+                                                </select>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-end mt-3">
+                                                    <button type="reset" data-bs-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Topbar Search -->
                     <form style="width: 400px;">
                         <div class="input-group">
@@ -179,52 +270,112 @@
                         </div>
                     </form>
                 </nav>
+
+                <div class="modal fade text-left modal-borderless" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add User</h5>
+                                <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form form-vertical needs-validation" novalidate>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group has-validation">
+                                                    <label for="Username">Username</label>
+                                                    <input type="text" class="form-control" placeholder="Username" name="username" id="username" required>
+                                                    <div class="invalid-feedback">Please fill out this field</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="Fullname">Fullname</label>
+                                                    <input type="text" class="form-control" placeholder="Fullname" name="fullname" id="fullname" required>
+                                                    <div class="invalid-feedback">Please fill out this field</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="Password">Password</label>
+                                                    <input type="password" minlength="8" class="form-control" placeholder="Password" name="password" id="password" required>
+                                                    <div class="invalid-feedback">Please fill out this field with 8 digits up</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="Telephone">Telephone</label>
+                                                    <input type="text" class="form-control" placeholder="Telephone" name="telephone" id="telephone" required>
+                                                    <div class="invalid-feedback">Please fill out this field</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="Email">Email</label>
+                                                    <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
+                                                    <div class="invalid-feedback">Please fill out this field correctly with your email</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="Address">Address</label>
+                                                    <input type="text" class="form-control" placeholder="Address" name="address" id="address" required>
+                                                    <div class="invalid-feedback">Please fill out this field</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="Type">Type</label>
+                                                    <select class="form-select form-control" name="type" id="type" required>
+                                <option value="Normal">Normal</option>
+                                <option value="Admin">Admin</option>
+                              </select>
+                                                    <div class="invalid-feedback">Please fill out this field</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="Status">Status</label>
+                                                    <select class="form-select form-control" name="status" id="status" required>
+                                <option value="Enable" selected>Enable</option>
+                                <option value="Disable">Disable</option>
+                              </select>
+                                                    <div class="invalid-feedback">Please fill out this field</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex justify-content-end mt-3">
+                                                <button type="reset" data-bs-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                <button type="button" class="btn btn-primary me-1 mb-1" onclick="updateUser()">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- End of Topbar -->
                 <div class="bg-light overflow-auto">
                     <table class="table table-striped text-nowrap">
                         <thead>
                             <tr>
-                                <th class="text-center" scope="col">ID</th>
                                 <th scope="col">UserName</th>
                                 <th scope="col">Fullname</th>
                                 <th scope="col">Password</th>
                                 <th class="text-center" scope="col">Telephone</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Address</th>
                                 <th scope="col">Type of User</th>
                                 <th scope="col">Status-User</th>
+                                <th scope="col">Action</th>
+
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">A-001</th>
-                                <td>kim.tepamatak</td>
-                                <td>Kim Tepamatak</td>
-                                <td>Amatak009</td>
-                                <td>089702521</td>
-                                <td>kimtepamatak@gmail.com</td>
-                                <td>Admin</td>
-                                <td>Enable</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">S-002</th>
-                                <td>kim.tepbuphata</td>
-                                <td>Kim Tepbuphata</td>
-                                <td>Buphata009</td>
-                                <td>077943128</td>
-                                <td>kimtepbuphata@gmail.com</td>
-                                <td>Normal</td>
-                                <td>Enable</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">S-003</th>
-                                <td>kim.tepsachak</td>
-                                <td>Kim Tepsachak</td>
-                                <td>Sachak009</td>
-                                <td>017757316</td>
-                                <td>kimtepsachak@gmail.com</td>
-                                <td>Normal</td>
-                                <td>Disable</td>
-                            </tr>
+                        <tbody id="userTable">
+
                         </tbody>
                     </table>
                 </div>
@@ -239,6 +390,30 @@
         <div class="credit"> created by <span> Kim Tepamatak </span> | all rights reserved </div>
 
     </section>
+    <!-- for connect with backend -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/backend/userpage.js"></script>
+
+    <script>
+        // Disable form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 </body>
 
 </html>

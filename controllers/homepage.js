@@ -1,5 +1,10 @@
 exports.getHomePage = (req, res) => {
-    res.render('homepage');
+    if (req.session.user) {
+        res.render('homepage', { username: req.session.user.username });
+    } else {
+        res.redirect('/')
+    }
+
 }
 exports.getUser = (req, res) => {
     res.render('user');
@@ -29,7 +34,7 @@ exports.getOutstock = (req, res) => {
     res.render('outstock');
 }
 exports.getLoginpage = (req, res) => {
-    res.render('loginpage');
+    res.render('loginpage', { error: false });
 }
 exports.getKkkkkk = (req, res) => {
     res.render('kkkkkk');
