@@ -67,11 +67,11 @@ async function getTypeofstaff() {
                     var childPost = document.createElement("tr");
                     childPost.setAttribute("id", "trTypeofstaff" + element._id);
                     const staff = allStaff.find(staff => staff._id === element.staffId)
-                    if(staff) {
+                    if (staff) {
                         childPost.innerHTML = `
                             <td>${ staff.surname + ' ' + staff.firstname }</td>
                             <td>${ element.type }</td>
-                            <td>${ element.salary }</td>
+                            <td>${ element.salary } $</td>
                             <td class="text-center">
                             <i class="fa-solid fa-file-pen" onclick="toEditTypeofstaff('${ element._id }')"></i>
                             <i class="fa-solid fa-trash" onclick="deleteTypeofstaff('${ element._id }')"></i>
@@ -100,7 +100,7 @@ async function toEditTypeofstaff(typeofstaffId) {
         .then(typeofstaff => {
             editTypeofstaffId = ''
             const staff = allStaff.find(staff => staff._id === typeofstaff.data.staffId)
-            document.getElementById('inputEditStaff').value =  staff.surname + ' ' + staff.firstname
+            document.getElementById('inputEditStaff').value = staff.surname + ' ' + staff.firstname
             document.getElementById('type').value = typeofstaff.data.type
             document.getElementById('salary').value = typeofstaff.data.salary
             $('#editTypeofstaffModal').modal('show')

@@ -71,10 +71,9 @@ async function getAttendance() {
                         childPost.innerHTML = `
                 <td>${ staff.surname + ' ' + staff.firstname }</td>
                 <td>${ element.date }</td>
-                <td>${ element.numberhour }</td>
-                <td>${ element.bonus }</td>
+                <td>${ element.numberhour } Hours</td>
+                <td>${ element.bonus } Hours</td>
                 <td class="text-center">
-                  <i class="fa-solid fa-file-pen" onclick="toEditAttendance('${ element._id }')"></i>
                   <i class="fa-solid fa-trash" onclick="deleteAttendance('${ element._id }')"></i>
                 </td>
               `;

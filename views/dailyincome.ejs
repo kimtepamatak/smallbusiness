@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="/Assets/Icons/fontawesome-free-5.15.1-web/css/all.css">
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
@@ -120,8 +121,8 @@
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/typeofstaff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Type Of Staff</span></a>
+                <a onclick="window.location.href = '/typeofproduct'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                    <span>Type Of Product</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -141,7 +142,7 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a onclick="window.location.href = '/stuff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Staff</span></a>
+                    <span>Product</span></a>
             </li>
 
             <!-- Divider -->
@@ -165,10 +166,10 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
                     <h4>Daily Income</h4>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAttendanceModal">
-                        Add Product
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUserModal">
+                        Add Daily-Income
                     </button>
-                    <div class="modal fade" id="createAttendanceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -178,17 +179,17 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="/attendance" method="post" class="form form-vertical needs-validation" novalidate>
+                                    <form action="/dailyincome" method="post" class="form form-vertical needs-validation" novalidate>
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group has-validation">
-                                                        <label for="Staff">Staff</label>
-                                                        <input id="inputStaff" type="text" class="form-control" placeholder="Staff" required>
-                                                        <input id="inputStaffId" type="text" class="d-none form-control" placeholder="Staff" name="staffId">
+                                                        <label for="Product">Product</label>
+                                                        <input id="inputProduct" type="text" class="form-control" placeholder="Product" required>
+                                                        <input id="inputProductId" type="text" class="d-none form-control" placeholder="Product" name="productId">
                                                         <div class="invalid-feedback">Please fill out this field</div>
                                                         <div class="dropdown">
-                                                            <ul id="listSelectStaffs" class="dropdown-menu">
+                                                            <ul id="listSelectProducts" class="dropdown-menu">
                                                                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
                                                             </ul>
                                                         </div>
@@ -196,23 +197,21 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="Date-Income">Date-Income</label>
-                                                        <input type="String" class="form-control" placeholder="Date-Income" name="dateincome" required>
-                                                        <div class="invalid-feedback">Please fill out this field</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
                                                         <label for="Number-Sold">Number-Sold</label>
-                                                        <input type="number" class="form-control" placeholder="Number-Sold" name="numbersold" required>
+                                                        <input type="number" class="form-control" placeholder="Number-Sold" name="numberSold" required>
                                                         <div class="invalid-feedback">Please fill out this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="Bonus">Bonus</label>
-                                                        <input type="number" class="form-control" placeholder="Bonus" name="bonus" required>
+                                                        <label for="Extra-Fee">Extra-Fee</label>
+                                                        <input type="number" class="form-control" placeholder="Extra-Fee" name="extraFee" required>
                                                         <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 d-none">
+                                                    <div class="form-group">
+                                                        <input id="SellPrice" name="SellPrice">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 d-flex justify-content-end mt-3">
@@ -243,8 +242,7 @@
                     <table class="table table-striped text-nowrap">
                         <thead>
                             <tr>
-                                <th scope="col">ID-DailyIncome</th>
-                                <th scope="col">ID-Staff</th>
+                                <th scope="col">ID-User</th>
                                 <th scope="col">ID-Product</th>
                                 <th scope="col">Date-Income</th>
                                 <th scope="col">Number-Sold</th>
@@ -252,9 +250,9 @@
                                 <th scope="col">Income-Amount</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="dailyincomeTable"></tbody>
+                        <!-- <tbody>
                             <tr>
-                                <td>ID-DailyIncome-0001</td>
                                 <td>A-001</td>
                                 <td>P-001</td>
                                 <td>10/03/2022</td>
@@ -264,7 +262,6 @@
 
                             </tr>
                             <tr>
-                                <td>ID-DailyIncome-0002</td>
                                 <td>S-002</td>
                                 <td>P-002</td>
                                 <td>10/03/2022</td>
@@ -273,7 +270,6 @@
                                 <td>300</td>
                             </tr>
                             <tr>
-                                <td>ID-DailyIncome-0003</td>
                                 <td>S-003</td>
                                 <td>P-003</td>
                                 <td>10/03/2022</td>
@@ -281,7 +277,7 @@
                                 <td>-$</td>
                                 <td>300</td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
             </div>
@@ -293,6 +289,30 @@
     <section class="footer">
         <div class="credit"> created by <span> Kim Tepamatak </span> | all rights reserved </div>
     </section>
+    <!-- for connect with backend -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/backend/dailyincome.js"></script>
+
+    <script>
+        // Disable form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 </body>
 
 </html>

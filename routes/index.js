@@ -10,6 +10,7 @@ const staff = require("../controllers/staff");
 const attendance = require("../controllers/attendance");
 const payment = require("../controllers/payment");
 const typeofstaff = require("../controllers/typeofstaff");
+const dailyincome = require("../controllers/dailyincome");
 // const User = require('../models/users');
 
 router.get('/homepage', homeController.getHomePage);
@@ -67,4 +68,10 @@ router.get('/payment/:paymentId', payment.getPayment);
 router.get('/payments', payment.getAllPayment);
 router.patch('/payment/:paymentId', payment.editPayment);
 router.delete('/payment/:paymentId', payment.deletePayment);
+// for payment
+router.post('/dailyincome', dailyincome.newDailyincome);
+router.get('/dailyincomes/:dailyincomeId', dailyincome.getDailyincome);
+router.get('/dailyincomes', dailyincome.getAllDailyincome);
+router.patch('/dailyincome/:dailyincomeId', dailyincome.editDailyincome);
+router.delete('/dailyincome/:dailyincomeId', dailyincome.deleteDailyincome);
 module.exports = router;

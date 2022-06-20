@@ -71,9 +71,8 @@ async function getPayment() {
                         childPost.innerHTML = `
                 <td>${ staff.surname + ' ' + staff.firstname }</td>
                 <td>${ element.date }</td>
-                <td>${ element.paymentamount }</td>
+                <td>${ element.paymentamount } $</td>
                 <td class="text-center">
-                  <i class="fa-solid fa-file-pen" onclick="toEditPayment('${ element._id }')"></i>
                   <i class="fa-solid fa-trash" onclick="deletePayment('${ element._id }')"></i>
                 </td>
               `;
