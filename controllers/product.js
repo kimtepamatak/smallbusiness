@@ -56,7 +56,6 @@ exports.deleteProduct = (req, res) => {
             });
     }
 };
-//edit product
 exports.editProduct = (req, res) => {
     if (req.params.productId) {
         Product.findByIdAndUpdate(req.params.productId).then((value) => {

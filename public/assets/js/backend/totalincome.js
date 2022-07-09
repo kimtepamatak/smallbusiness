@@ -3,7 +3,6 @@ let editTypeofproductId = ''
 let allProduct = []
 let showSelect = false
 let inputProductId = ''
-let allUsers = []
     // select product
 $(document).ready(function() {
     $("#myInput").on("keyup", function() {
@@ -66,66 +65,32 @@ async function getDailyincome() {
             .then(dailyincomes => {
                 // render data from server
                 let parentPost = document.getElementById("dailyincomeTable");
-                dailyincomes.data.reverse().forEach(element => {
+                const listTotal = []
+                const listDate = []
+                dailyincomes.data.forEach(value => {
+                    // if (listTotal.length == 0) {
+                    //     listTotal.push(value)
+                    //     listDate.push(value.date)
+                    // }
+
+                    if (listDate.includes(value.date)) {
+                        listTotal.forEach(item => {
+                            if (item.date == value.date) item.incomeAmount += value.incomeAmount
+                        })
+                    } else {
+                        listTotal.push(value)
+                        listDate.push(value.date)
+                    }
+                })
+                listTotal.reverse().forEach(element => {
                     console.log('element', element, allProduct)
                     var childPost = document.createElement("tr");
                     childPost.setAttribute("id", "trDailyincome" + element._id);
                     const product = allProduct.find(product => product._id === element.ProductId)
-                    const user = allUsers.find(user => user._id === element.UserId)
-                    if (product && user) {
+                    if (product) {
                         childPost.innerHTML = `
-                            <td>${ user.username }</td>
-                            <td>${ product.NameProduct }</td>
                             <td>${ element.date }</td>
-                            <td>${ element.numberSold } Case</td>
-                            <td>${ element.extraFee } $</td>
                             <td>${ element.incomeAmount } $</td>
-                            <td class="text-center">
-                                <i class="fa-solid fa-file-pen" onclick="toEditUser('${ element._id }')"></i>
-                                <i class="fa-solid fa-trash" onclick="deleteDailyincome('${ element._id }')"></i>
-                            </td>
-                        `;
-                        parentPost.appendChild(childPost);
-                    } else if (user) {
-                        childPost.innerHTML = `
-                            <td>${ user.username }</td>
-                            <td></td>
-                            <td>${ element.date }</td>
-                            <td>${ element.numberSold } Case</td>
-                            <td>${ element.extraFee } $</td>
-                            <td>${ element.incomeAmount } $</td>
-                            <td class="text-center">
-                                <i class="fa-solid fa-file-pen" onclick="toEditUser('${ element._id }')"></i>
-                                <i class="fa-solid fa-trash" onclick="deleteDailyincome('${ element._id }')"></i>
-                            </td>
-                        `;
-                        parentPost.appendChild(childPost);
-                    } else if (product) {
-                        childPost.innerHTML = `
-                            <td></td>
-                            <td>${ product.NameProduct }</td>
-                            <td>${ element.date }</td>
-                            <td>${ element.numberSold } Case</td>
-                            <td>${ element.extraFee } $</td>
-                            <td>${ element.incomeAmount } $</td>
-                            <td class="text-center">
-                                <i class="fa-solid fa-file-pen" onclick="toEditUser('${ element._id }')"></i>
-                                <i class="fa-solid fa-trash" onclick="deleteDailyincome('${ element._id }')"></i>
-                            </td>
-                        `;
-                        parentPost.appendChild(childPost);
-                    } else {
-                        childPost.innerHTML = `
-                            <td></td>
-                            <td></td>
-                            <td>${ element.date }</td>
-                            <td>${ element.numberSold } Case</td>
-                            <td>${ element.extraFee } $</td>
-                            <td>${ element.incomeAmount } $</td>
-                            <td class="text-center">
-                                <i class="fa-solid fa-file-pen" onclick="toEditUser('${ element._id }')"></i>
-                                <i class="fa-solid fa-trash" onclick="deleteDailyincome('${ element._id }')"></i>
-                            </td>
                         `;
                         parentPost.appendChild(childPost);
                     }
@@ -187,12 +152,7 @@ function checkError() {
     if (NumberProduct && ProductName) alert(`ProductName: ${ProductName} have only ${NumberProduct} in stock !!!`)
 }
 
-async function getUser() {
-    await axios.get('/users')
-        .then(users => allUsers = users.data)
-}
-
-Promise.all([getProduct(), getUser()]).then(() => {
+Promise.all([getProduct()]).then(() => {
     getDailyincome()
     checkError()
 })

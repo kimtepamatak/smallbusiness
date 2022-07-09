@@ -92,28 +92,18 @@
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/user'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>User</span></a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/attendance'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/attendanceseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Attendance</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/payment'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/paymentseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Payment</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/dailyincome'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/dailyincomeseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Daily Income</span></a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/typeofstaff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Type of Staff</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -131,18 +121,13 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/totaldailyincome'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/totaldailyincomeseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Total Income</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/product'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/productseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Product</span></a>
-            </li>
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/stuff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Staff</span></a>
             </li>
 
             <!-- Divider -->
@@ -150,7 +135,7 @@
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-                <a onclick="window.location.href = '/homepage'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/homepageuser'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </a>
             </div>
@@ -185,8 +170,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID-Product</th>
-                                <th scope="col">Number-sold</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Number-sold</th>
                             </tr>
                         </thead>
                         <tbody id="productTable"></tbody>

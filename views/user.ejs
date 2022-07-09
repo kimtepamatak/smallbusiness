@@ -50,7 +50,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= username %></span>
                                 <img src="assets/img/portfolio/amatak.jpg" class="img-profile rounded-circle" style="max-width: 1cm; max-height: 1cm" alt="">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -65,7 +65,7 @@
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="/logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
                                 </a>
                             </div>
@@ -97,13 +97,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <span>User</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings:</h6>
                         <a class="collapse-item" href="cards.html">Edit-User</a>
                         <a class="collapse-item" href="cards.html">Delete</a>
                     </div>
-                </div>
+                </div> -->
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -248,7 +248,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 d-flex justify-content-end mt-3">
-                                                    <button type="reset" data-bs-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                    <button type="reset" data-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
                                                     <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                                 </div>
                                             </div>
@@ -276,7 +276,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Add User</h5>
-                                <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
                                     <i data-feather="x"></i>
                                 </button>
                             </div>
@@ -347,7 +347,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 d-flex justify-content-end mt-3">
-                                                <button type="reset" data-bs-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                <button type="reset" data-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
                                                 <button type="button" class="btn btn-primary me-1 mb-1" onclick="updateUser()">Submit</button>
                                             </div>
                                         </div>

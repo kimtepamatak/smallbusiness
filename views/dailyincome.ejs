@@ -48,7 +48,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= username %></span>
                                 <img src="assets/img/portfolio/amatak.jpg" class="img-profile rounded-circle" style="max-width: 1cm; max-height: 1cm" alt="">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -63,7 +63,7 @@
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="/logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
                                 </a>
                             </div>
@@ -111,18 +111,18 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <span>Daily-Income</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings:</h6>
                         <a class="collapse-item" href="cards.html">Edit</a>
                         <a class="collapse-item" href="cards.html">Delete</a>
                     </div>
-                </div>
+                </div> -->
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/typeofproduct'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Type Of Product</span></a>
+                <a onclick="window.location.href = '/typeofstaff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                    <span>Type Of Staff</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -142,7 +142,7 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a onclick="window.location.href = '/stuff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Product</span></a>
+                    <span>stuff</span></a>
             </li>
 
             <!-- Divider -->
@@ -169,6 +169,73 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUserModal">
                         Add Daily-Income
                     </button>
+                    <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/dailyincome" method="post" class="form form-vertical needs-validation" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group has-validation">
+                                                        <label for="Product">Product</label>
+                                                        <input id="inputProduct" type="text" class="form-control" placeholder="Product" required>
+                                                        <input id="inputProductId" type="text" class="d-none form-control" placeholder="Product" name="productId">
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                        <div class="dropdown">
+                                                            <ul id="listSelectProducts" class="dropdown-menu">
+                                                                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Number-Sold">Number-Sold</label>
+                                                        <input type="number" class="form-control" placeholder="Number-Sold" name="numberSold" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="Extra-Fee">Extra-Fee</label>
+                                                        <input type="number" class="form-control" placeholder="Extra-Fee" name="extraFee" required>
+                                                        <div class="invalid-feedback">Please fill out this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 d-none">
+                                                    <div class="form-group">
+                                                        <input id="SellPrice" name="SellPrice">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-end mt-3">
+                                                    <button type="reset" data-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topbar Search -->
+                    <form style="width: 400px;">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                     <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -215,7 +282,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 d-flex justify-content-end mt-3">
-                                                    <button type="reset" data-bs-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
+                                                    <button type="reset" data-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
                                                     <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                                 </div>
                                             </div>
@@ -225,17 +292,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Topbar Search -->
-                    <form style="width: 400px;">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </nav>
                 <!-- End of Topbar -->
                 <div class="bg-light overflow-auto">

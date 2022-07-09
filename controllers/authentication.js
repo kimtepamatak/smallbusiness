@@ -7,6 +7,8 @@ exports.getSignInPage = (req, res) => {
 exports.login = async(req, res) => {
         const email = req.body.email;
         const password = req.body.password;
+        const type = req.body.type;
+        // let typeuser = new String('Normal');
         // Check if email is exist
         await User.find({ email: email }).then(result => {
             if (result != "") {
@@ -20,7 +22,13 @@ exports.login = async(req, res) => {
                     // store user information to session
                     req.session.user = result[0];
                     console.log("login sucess");
-                    res.redirect("/homepage");
+                    if (result[0].status === 'Disable') {
+                        res.render('loginpage', { error: true, message: "Account Disable" });
+                    } else if (result[0].type === 'Normal') {
+                        res.redirect("/homepageuser");
+                    } else {
+                        res.redirect("/homepage");
+                    }
                 } else {
                     // else return fail
                     res.render('loginpage', { error: true, message: "Password incorrect" });

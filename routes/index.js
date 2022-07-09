@@ -11,9 +11,12 @@ const attendance = require("../controllers/attendance");
 const payment = require("../controllers/payment");
 const typeofstaff = require("../controllers/typeofstaff");
 const dailyincome = require("../controllers/dailyincome");
+const totalincome = require("../controllers/totalincome");
+const outstock = require("../controllers/outstock");
 // const User = require('../models/users');
 
 router.get('/homepage', homeController.getHomePage);
+router.get('/homepageuser', homeController.getHomePageUser);
 router.get('/signin', authenticationController.getSignInPage);
 router.get('/user', homeController.getUser);
 router.get('/attendance', homeController.getAttendance);
@@ -24,8 +27,14 @@ router.get('/dailyincome', homeController.getDailyincome);
 router.get('/typeofstaff', homeController.getTypeofstaff);
 router.get('/totaldailyincome', homeController.getTotaldailyincome);
 router.get('/outstock', homeController.getOutstock);
+//seller
+router.get('/attendanceseller', homeController.getAttendanceseller);
+router.get('/productseller', homeController.getproductseller);
+router.get('/paymentseller', homeController.getpaymentseller);
+router.get('/dailyincomeseller', homeController.getDailyincomeseller);
+router.get('/totaldailyincomeseller', homeController.getTotaldailyincomeseller);
+router.get('/outstockseller', homeController.getOutstockseller);
 router.get('', homeController.getLoginpage);
-router.get('/kkkkkk', homeController.getKkkkkk);
 
 //for login
 // router.post('/register', authenController.register);
@@ -68,10 +77,21 @@ router.get('/payment/:paymentId', payment.getPayment);
 router.get('/payments', payment.getAllPayment);
 router.patch('/payment/:paymentId', payment.editPayment);
 router.delete('/payment/:paymentId', payment.deletePayment);
-// for payment
+// for dailyincome
 router.post('/dailyincome', dailyincome.newDailyincome);
 router.get('/dailyincomes/:dailyincomeId', dailyincome.getDailyincome);
 router.get('/dailyincomes', dailyincome.getAllDailyincome);
 router.patch('/dailyincome/:dailyincomeId', dailyincome.editDailyincome);
 router.delete('/dailyincome/:dailyincomeId', dailyincome.deleteDailyincome);
+router.patch('/product/:productId', dailyincome.editOutstockproduct);
+// for totalincome
+router.post('/totalincome', totalincome.newTotalincome);
+router.get('/totalincomes/:totalincomeId', totalincome.getTotalincome);
+router.get('/totalincomes', totalincome.getAllTotalincome);
+// for outstock
+router.post('/outstock', outstock.newOutstock);
+router.get('/outstocks/:outstockId', outstock.getOutstock);
+router.get('/outstocks', outstock.getAllOutstock);
+
+
 module.exports = router;

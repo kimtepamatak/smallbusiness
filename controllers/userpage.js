@@ -1,5 +1,6 @@
 const User = require("../models/user");
 //add user
+
 exports.newUser = (req, res) => {
     if (req.body) {
         const user = new User({

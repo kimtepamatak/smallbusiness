@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Out Stock</title>
+    <title>Total Daily Income</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bootstrap -->
@@ -26,8 +26,7 @@
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- css -->
-    <link rel="stylesheet" href="assets/css/outstock.css">
+    <link rel="stylesheet" href="assets/css/totaldailyincome.css">
 </head>
 
 <body>
@@ -92,65 +91,48 @@
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/user'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>User</span></a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/attendance'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/attendanceseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Attendance</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/payment'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/paymentseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Payment</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/dailyincome'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/dailyincomeseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Daily Income</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/typeofstaff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Type of Staff</span></a>
+                <a onclick="window.location.href = '/outstockseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                    <span>Out Stock</span></a>
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Out Stock</span>
+                    <span>Total Income</span>
                 </a>
                 <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings:</h6>
-                        <a class="collapse-item" href="buttons.html">Create-Stock</a>
-                        <a class="collapse-item" href="cards.html">Edit-Stock</a>
+                        <a class="collapse-item" href="cards.html">Edit</a>
                         <a class="collapse-item" href="cards.html">Delete</a>
                     </div>
                 </div> -->
             </li>
-
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/totaldailyincome'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Total Income</span></a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/product'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/productseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Product</span></a>
             </li>
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/stuff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Staff</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-                <a onclick="window.location.href = '/homepage'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/homepageuser'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </a>
             </div>
@@ -165,7 +147,7 @@
             <div class="" id="content">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
-                    <h4>Out Stock</h4>
+                    <h4>Total Income</h4>
                     <!-- Topbar Search -->
                     <form style="width: 400px;">
                         <div class="input-group">
@@ -175,7 +157,6 @@
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
-
                         </div>
                     </form>
                 </nav>
@@ -184,26 +165,11 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">ID-Product</th>
-                                <th scope="col">Number-sold</th>
-                                <th scope="col">Date</th>
+                                <th scope="col">Date-Income</th>
+                                <th scope="col">Total-Income-Amount</th>
                             </tr>
                         </thead>
-                        <tbody id="productTable"></tbody>
-                        <!-- <tbody>
-                            <tr>
-                                <td>Hupi</td>
-                                <td>2 case</td>
-                            </tr>
-                            <tr>
-                                <td>Hupi</td>
-                                <td>2 case</td>
-                            </tr>
-                            <tr>
-                                <td>Ranli shougong</td>
-                                <td>2 Case</td>
-                            </tr>
-                        </tbody> -->
+                        <tbody id="dailyincomeTable"></tbody>
                     </table>
                 </div>
                 <!-- End of Main Content -->
@@ -217,7 +183,7 @@
     </section>
     <!-- for connect with backend -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/assets/js/backend/outstock.js"></script>
+    <script src="assets/js/backend/totalincome.js"></script>
 
     <script>
         // Disable form submissions if there are invalid fields

@@ -40,7 +40,8 @@ async function getStaff() {
                 allStaff = staffs.data // save all staff to global variable
 
                 let parentPost = document.getElementById("listSelectStaffs");
-                staffs.data.forEach(element => {
+                const liststaff = staffs.data.filter(value => value.status !== "Disable")
+                liststaff.forEach(element => {
                     var childPost = document.createElement("li");
                     childPost.setAttribute("class", "mx-3 mt-1");
                     childPost.setAttribute("onclick", `clickStaff('${element._id}')`);
@@ -63,7 +64,7 @@ async function getPayment() {
             .then(payments => {
                 // render data from server
                 let parentPost = document.getElementById("paymentTable");
-                payments.data.forEach(element => {
+                payments.data.reverse().forEach(element => {
                     var childPost = document.createElement("tr");
                     childPost.setAttribute("id", "trPayment" + element._id);
                     const staff = allStaff.find(staff => staff._id === element.staffId)

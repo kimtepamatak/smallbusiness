@@ -40,7 +40,8 @@ async function getStaff() {
                 allStaff = staffs.data // save all staff to global variable
 
                 let parentPost = document.getElementById("listSelectStaffs");
-                staffs.data.forEach(element => {
+                const liststaff = staffs.data.filter(value => value.status !== "Disable")
+                liststaff.forEach(element => {
                     var childPost = document.createElement("li");
                     childPost.setAttribute("class", "mx-3 mt-1");
                     childPost.setAttribute("onclick", `clickStaff('${element._id}')`);
@@ -63,19 +64,30 @@ async function getAttendance() {
             .then(attendances => {
                 // render data from server
                 let parentPost = document.getElementById("attendanceTable");
-                attendances.data.forEach(element => {
+                attendances.data.reverse().forEach(element => {
                     var childPost = document.createElement("tr");
                     childPost.setAttribute("id", "trAttendance" + element._id);
                     const staff = allStaff.find(staff => staff._id === element.staffId)
                     if (staff) {
                         childPost.innerHTML = `
-                <td>${ staff.surname + ' ' + staff.firstname }</td>
-                <td>${ element.date }</td>
-                <td>${ element.numberhour } Hours</td>
-                <td>${ element.bonus } Hours</td>
-                <td class="text-center">
-                  <i class="fa-solid fa-trash" onclick="deleteAttendance('${ element._id }')"></i>
-                </td>
+                    <td>${ staff.surname + ' ' + staff.firstname }</td>
+                    <td>${ element.date }</td>
+                    <td>${ element.numberhour } Hours</td>
+                    <td>${ element.bonus } Hours</td>
+                    <td class="text-center">
+                        <i class="fa-solid fa-trash" onclick="deleteAttendance('${ element._id }')"></i>
+                     </td>
+              `;
+                        parentPost.appendChild(childPost);
+                    } else {
+                        childPost.innerHTML = `
+                    <td></td>
+                    <td>${ element.date }</td>
+                    <td>${ element.numberhour } Hours</td>
+                    <td>${ element.bonus } Hours</td>
+                    <td class="text-center">
+                        <i class="fa-solid fa-trash" onclick="deleteAttendance('${ element._id }')"></i>
+                     </td>
               `;
                         parentPost.appendChild(childPost);
                     }

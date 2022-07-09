@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Types of Staff</title>
+    <title>Attendance</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bootstrap -->
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
 
+
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
@@ -29,7 +30,7 @@
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
     <!-- css -->
-    <link rel="stylesheet" href="assets/css/typeofstaff.css">
+    <link rel="stylesheet" href="assets/css/attendance.css">
 </head>
 
 <body>
@@ -89,69 +90,45 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
-
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/user'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>User</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Attendance</span>
+                </a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/attendance'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Attendance</span></a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/payment'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/paymentseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Payment</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/dailyincome'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/dailyincomeseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Daily Income</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Type of Staff</span>
-                </a>
-                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Settings:</h6>
-                        <a class="collapse-item" href="buttons.html">Create</a>
-                        <a class="collapse-item" href="cards.html">Edit</a>
-                        <a class="collapse-item" href="cards.html">Delete</a>
-                    </div>
-                </div> -->
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/outstock'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/outstockseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Out Stock</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/totaldailyincome'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/totaldailyincomeseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Total Income</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a onclick="window.location.href = '/product'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/productseller'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <span>Product</span></a>
             </li>
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a onclick="window.location.href = '/stuff'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <span>Staff</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-                <a onclick="window.location.href = '/homepage'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
+                <a onclick="window.location.href = '/homepageuser'" class="nav-link" data-bs-toggle="modal" href="#portfolioModal4">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </a>
             </div>
@@ -166,11 +143,11 @@
             <div class="" id="content">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
-                    <h4>Type of Staff</h4>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createTypeofstaffModal">
-                        Add Type of Staff
+                    <h4>Attendance</h4>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAttendanceModal">
+                        Add Attendance
                     </button>
-                    <div class="modal fade" id="createTypeofstaffModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="createAttendanceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -180,7 +157,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="/typeofstaff" method="post" class="form form-vertical needs-validation" novalidate>
+                                    <form action="/attendance" method="post" class="form form-vertical needs-validation" novalidate>
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
@@ -198,19 +175,15 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="Type">Type</label>
-                                                        <select class="form-select form-control" name="type" required>
-                                                            <option value="Admin">Admin</option>
-                                                            <option value="Seller">Seller</option>
-                                                            <option value="Delivery">Delivery</option>
-                                                        </select>
+                                                        <label for="Number-Hour">Number-Hour</label>
+                                                        <input type="number" class="form-control" placeholder="Number-Hour" name="numberhour" required>
                                                         <div class="invalid-feedback">Please fill out this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="Salary">Salary</label>
-                                                        <input type="number" class="form-control" placeholder="Salary" name="salary" required>
+                                                        <label for="Bonus">Bonus</label>
+                                                        <input type="number" class="form-control" placeholder="Bonus" name="bonus" required>
                                                         <div class="invalid-feedback">Please fill out this field</div>
                                                     </div>
                                                 </div>
@@ -227,73 +200,39 @@
                     </div>
                     <!-- Topbar Search -->
                     <form style="width: 400px;">
-                        <div class="input-group ">
-                            <input type="text " class="form-control bg-light border-0 small " placeholder="Search for... " aria-label="Search " aria-describedby="basic-addon2 ">
-                            <div class="input-group-append ">
-                                <button class="btn btn-primary " type="button ">
-                                    <i class="fas fa-search fa-sm "></i>
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
                         </div>
                     </form>
                 </nav>
 
-                <div class="modal fade text-left modal-borderless" id="editTypeofstaffModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Edit Type of Staff</h5>
-                                <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group has-validation">
-                                            <label for="Staff">Staff</label>
-                                            <input id="inputEditStaff" type="text" class="form-control" placeholder="Staff" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="Type">Type</label>
-                                            <select class="form-select form-control" name="type" id="type" required>
-                                                <option value="Admin">Admin</option>
-                                                <option value="Seller">Seller</option>
-                                                <option value="Delivery">Delivery</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill out this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="Salary">Salary</label>
-                                            <input id="salary" type="number" class="form-control" placeholder="Salary" name="salary" required>
-                                            <div class="invalid-feedback">Please fill out this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="reset" data-dismiss="modal" class="btn btn-light-secondary me-1 mb-1">Close</button>
-                                        <button class="btn btn-primary me-1 mb-1" onclick="updatetypeofstaff()">Submit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- End of Topbar -->
-                <div class="bg-light w-100 ">
-                    <table class="table table-striped ">
+                <div class="bg-light overflow-auto">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col ">ID-Staff</th>
-                                <th scope="col ">Type</th>
-                                <th scope="col ">Salary</th>
+                                <th scope="col">ID-Staff</th>
+                                <th scope="col">Date-Attendance</th>
+                                <th scope="col">Number-Hour</th>
+                                <th scope="col">Bonus of Attendance</th>
                             </tr>
                         </thead>
-                        <tbody id="typeofstaffTable"></tbody>
+                        <tbody id="attendanceTable"></tbody>
+                        <!-- <tbody>
+                            <tr>
+                                <th scope="row">0001</th>
+                                <td>A-001</td>
+                                <td>21/04/2022</td>
+                                <td>8</td>
+                                <td>10</td>
+                            </tr>
+                           
+                        </tbody> -->
                     </table>
                 </div>
             </div>
@@ -302,12 +241,15 @@
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
-    <section class="footer ">
-        <div class="credit "> created by <span> Kim Tepamatak </span> | all rights reserved </div>
+    <section class="footer">
+
+        <div class="credit"> created by <span> Kim Tepamatak </span> | all rights reserved </div>
+
     </section>
     <!-- for connect with backend -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="assets/js/backend/typeofstaff.js"></script>
+    <script src="assets/js/backend/attendance.js"></script>
+
     <script>
         // Disable form submissions if there are invalid fields
         (function() {

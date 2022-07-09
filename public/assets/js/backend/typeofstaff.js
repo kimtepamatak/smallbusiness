@@ -40,7 +40,8 @@ async function getStaff() {
                 allStaff = staffs.data // save all staff to global variable
 
                 let parentPost = document.getElementById("listSelectStaffs");
-                staffs.data.forEach(element => {
+                const liststaff = staffs.data.filter(value => value.status !== "Disable")
+                liststaff.forEach(element => {
                     var childPost = document.createElement("li");
                     childPost.setAttribute("class", "mx-3 mt-1");
                     childPost.setAttribute("onclick", `clickStaff('${element._id}')`);

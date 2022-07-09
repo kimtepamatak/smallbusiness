@@ -1,23 +1,33 @@
 const Dailyincome = require("../models/dailyincome");
+const Product = require("../models/product");
 //add dailyincome
 exports.newDailyincome = (req, res) => {
     if (req.body) {
         const product = req.body.SellPrice;
+        Product.findByIdAndUpdate({ _id: req.body.productId }).then(result => {
+            if (result && result.NumberProduct >= req.body.numberSold) {
+                result.NumberProduct = result.NumberProduct - req.body.numberSold
 
-        const dailyincome = new Dailyincome({
-            UserId: req.session.user._id,
-            ProductId: req.body.productId,
-            date: new Date().toISOString().split('T')[0], // today date yyyy-mm-dd
-            numberSold: req.body.numberSold,
-            extraFee: req.body.extraFee,
-            incomeAmount: (product * req.body.numberSold) - req.body.extraFee,
-        });
-        dailyincome.save().then(() => {
-                res.redirect('/dailyincome');
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                const dailyincome = new Dailyincome({
+                    UserId: req.session.user._id,
+                    ProductId: req.body.productId,
+                    date: new Date().toISOString().split('T')[0], // today date yyyy-mm-dd
+                    numberSold: req.body.numberSold,
+                    extraFee: req.body.extraFee,
+                    incomeAmount: (product * req.body.numberSold) - req.body.extraFee,
+                });
+                dailyincome.save().then(() => {
+                        res.redirect('/dailyincome');
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+
+                return result.save();
+            } else {
+                res.redirect(`/dailyincome?ProductName=${result.NameProduct}&NumberProduct=${result.NumberProduct}`);
+            }
+        })
     }
 };
 // get a dailyincome
@@ -64,6 +74,15 @@ exports.editDailyincome = (req, res) => {
             value.numbersold = req.body.numbersold
             value.extrafee = req.body.extrafee
             value.incomeamount = req.body.incomeamount
+            res.send(true);
+            return value.save();
+        });
+    }
+};
+exports.editOutstockproduct = (req, res) => {
+    if (req.params.ProductId) {
+        Product.findByIdAndUpdate(req.params.ProductId).then((value) => {
+            value.NumberProduct = req.body.NumberProduct - 2;
             res.send(true);
             return value.save();
         });
